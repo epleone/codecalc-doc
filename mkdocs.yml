@@ -9,6 +9,7 @@ nav:
   - 进制运算: radix_arithmetic.md
   - 时间计算: time_calc.md
   - 日期与时间戳: date_timestamp.md
+  - 向量与矩阵: matrix.md
 
 
 theme:

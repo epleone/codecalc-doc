@@ -106,7 +106,41 @@
 
 [[string |更多字符串内容]]
 
+## 矩阵
 
+列向量的写法 `[1,2,3]` 
+$$
+\left(\begin{array}{c}
+1 \\
+2 \\
+3
+\end{array}\right)
+$$
+
+行向量的写法 `{1,2,3}`
+
+$$
+\left(\begin{array}{c}
+1 & 2 & 3
+\end{array}\right)
+$$
+
+矩阵的写法 `{1,2,3;4,5,6}
+
+$$
+\left(\begin{array}{c}
+1 & 2 & 3 \\ \\
+4 & 5 & 6
+\end{array}\right)
+$$
+
+- 构建函数:  `eye`, `zeros`,`ones`, `random`, `diag`
+- 矩阵运算：`+`, `-`, *, `/`, `**`, `@`(矩阵乘), `det`, `inv`
+- 矩阵函数：`sum`, `mean`, `max`, `min`, `sort`, `reshape`, `repeat`
+- 矩阵属性：`A.T`(转置), `A.det`(行列式), `A.inv`(求逆)
+- 矩阵分析：`solve(A,b)`, `eigenvalues(A)`
+
+[[matrix|更多矩阵内容]]
 ## 时间计算
 
 时间表达式：
