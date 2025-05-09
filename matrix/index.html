@@ -1,0 +1,1224 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../date_timestamp/">
+      
+      
+      
+      <link rel="icon" href="../logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>向量与矩阵 - CodeCalc文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+Simplified+Chinese:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif Simplified Chinese";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CodeCalc文档" class="md-header__button md-logo" aria-label="CodeCalc文档" data-md-component="logo">
+      
+  <img src="../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeCalc文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              向量与矩阵
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../operator/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  运算符
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../function/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  函数
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../string/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  字符串
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../radix_arithmetic/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  进制运算
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../time_calc/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  时间计算
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../date_timestamp/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  日期与时间戳
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  向量与矩阵
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CodeCalc文档" class="md-nav__button md-logo" aria-label="CodeCalc文档" data-md-component="logo">
+      
+  <img src="../logo.png" alt="logo">
+
+    </a>
+    CodeCalc文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    运算符
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    字符串
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radix_arithmetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    进制运算
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_calc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    时间计算
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../date_timestamp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    日期与时间戳
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    向量与矩阵
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    向量与矩阵
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      向量
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="向量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      行向量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      列向量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="矩阵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用函数创建矩阵
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="矩阵运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵运算示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="矩阵运算示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵转置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵求逆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩阵行列式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      解线性方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算特征值和特征向量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">向量和矩阵<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">向量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">行向量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>行向量使用  <code>{...}</code>  表示：<br />
+比如</p>
+<div class="arithmatex">\[
+\{1,2,3 \} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3
+\end{array}\right)
+\]</div>
+<div class="admonition tips">
+<p class="admonition-title">当矩阵元素都是数字或者变量，不是表达式时，逗号可以省略。</p>
+</div>
+<ul>
+<li><code>{1 2 3}</code> 等价于 <code>{1,2,3}</code></li>
+<li><code>{1+2  max(2,3)  100}</code> 报错，需要写成 <code>{1+2, max(2,3), 100}</code></li>
+</ul>
+<h3 id="_4">列向量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>列向量可以使用中括号 <code>[...]</code> 表示,<br />
+比如 :</p>
+<div class="arithmatex">\[
+[1,2,3] = \left(\begin{array}{c}
+1 \\
+2 \\
+3
+\end{array}\right)
+\]</div>
+<p>同行向量一样，元素都是数字时，逗号可以省略。 <code>[1 2 3]</code> 也是可以的。</p>
+<p><code>[...]</code>  <strong>就是把里面的元素，从上往下排</strong>。所以元素是行向量时,  就是一个矩阵。</p>
+<div class="arithmatex">\[
+a = \{1\;2\;3 \}
+\]</div>
+<div class="arithmatex">\[
+b = \{4\;5\;6 \} 
+\]</div>
+<div class="arithmatex">\[
+c = \{7\;8\;9 \}
+\]</div>
+<div class="arithmatex">\[
+[a \; b \; c] = \left(\begin{array}{c}
+\left(\begin{array}{c}
+1 &amp; 2 &amp; 3
+\end{array}\right)  \\ 
+\left(\begin{array}{c}
+4 &amp; 5 &amp; 6
+\end{array}\right)  \\ 
+\left(\begin{array}{c}
+7 &amp; 8 &amp; 9
+\end{array}\right) 
+\end{array}\right)= \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9 
+\end{array}\right)
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title"><code>[...]</code> 中的元素只支持数字和行向量，不支持列向量和矩阵</p>
+</div>
+<h2 id="_5">矩阵<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>矩阵使用 <code>{...;...;...}</code> 符号。</p>
+<p>比如:</p>
+<div class="arithmatex">\[
+\{1,2,3; 4,5,6; 7,8,9\} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9 
+\end{array}\right)
+\]</div>
+<p>注意到先前使用符号<code>{1,2,3}</code> 表示行向量，</p>
+<p><strong>这个因为符号 <code>{...}</code> 的底层含义是元素拼接。</strong></p>
+<p><code>{1,2,3}</code> <strong>使用逗号<code>,</code> 表示列拼接</strong>， 也就是将元素横向水平拼接</p>
+<div class="arithmatex">\[
+\{1,2,3\}=\left(\begin{array}{c}
+1 &amp; 2 &amp; 3
+\end{array}\right)
+\]</div>
+<p><code>{1;2;3}</code>  <strong>使用分号 <code>;</code> 表示行拼接</strong>，也就是将元素垂直拼接<br />
+( 元素为数字和行向量时等价于 <code>[1,2,3]</code>, 可以将向量视为<code>{...;...;...}</code>不支持行向量和矩阵的语法糖 )</p>
+<div class="arithmatex">\[
+\{1;2;3\} = [1,2,3] =\left(\begin{array}{c}
+1 \\
+2 \\
+3
+\end{array}\right)
+\]</div>
+<p>所以 <code>{1,2,3; 4,5,6; 7,8,9}</code>  表示</p>
+<div class="arithmatex">\[
+\{1,2,3; 4,5,6; 7,8,9\} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9 
+\end{array}\right)
+\]</div>
+<p>对于矩阵<span class="arithmatex">\(a\)</span>:  </p>
+<div class="arithmatex">\[
+a = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 
+\end{array}\right)
+\]</div>
+<p><span class="arithmatex">\(\{a, a\}\)</span>  将矩阵水平拼接：</p>
+<div class="arithmatex">\[
+\{a,a\} =\left(\begin{array}{c}
+\left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 
+\end{array}\right) &amp; 
+\left(\begin{array}{c}
+1 &amp; 2 &amp; 3  \\ 
+4 &amp; 5 &amp; 6
+\end{array}\right) 
+\end{array}\right)
+=\left(\begin{array}{c}
+1 &amp; 2 &amp; 3 &amp; 1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 &amp; 4 &amp; 5 &amp; 6
+\end{array}\right)
+\]</div>
+<p><span class="arithmatex">\(\{a; a\}\)</span> 将矩阵垂直拼接：</p>
+<div class="arithmatex">\[
+\{a; a\} =\left(\begin{array}{c}
+\left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 
+\end{array}\right) \\
+\left(\begin{array}{c}
+1 &amp; 2 &amp; 3  \\ 
+4 &amp; 5 &amp; 6
+\end{array}\right) 
+\end{array}\right) = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6 \\
+1 &amp; 2 &amp; 3 \\ 
+4 &amp; 5 &amp; 6
+\end{array}\right)
+\]</div>
+<h3 id="_6">使用函数创建矩阵<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>eye(3)                     // 创建3x3单位矩阵
+zeros(3,4)                 // 创建3x4全零矩阵
+ones(2,3)                  // 创建2x3全一矩阵
+diag([1,2,3])              // 创建对角矩阵
+range(1,10)                // 创建从1到10的向量
+range(1,10,2)              // 创建从1到10步长为2的向量
+
+random(10)                 // 随机数
+random(10, 10)
+
+reshape(A, 2, 3)           // 将矩阵A重塑为2x3矩阵
+repeat([1,2,3], 2)         // 重复向量[1,2,3]两次
+</code></pre></div>
+<h2 id="_7">矩阵运算<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">基本运算<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>{1 2; 3 4} + {5 6; 7 8}    // 矩阵加法
+{1 2; 3 4} - {5 6; 7 8}    // 矩阵减法
+{1 2; 3 4} * {5 6; 7 8}    // 矩阵点乘
+{1 2; 3 4} / 2             // 矩阵除以标量
+</code></pre></div>
+<h3 id="_9">矩阵乘法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>{1 2; 3 4} * {5 6; 7 8}    // 矩阵点乘，对应位置元素相乘
+{1 2; 3 4} @ {5 6; 7 8}    // 矩阵乘法，使用@运算符的矩阵乘法
+</code></pre></div>
+<h3 id="_10">矩阵方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>{1 2; 3 4}.det             // 矩阵行列式
+{1 2; 3 4}.inv             // 矩阵求逆
+{1 2; 3 4}.transpose       // 矩阵转置
+{1 2; 3 4}.T               // 矩阵转置的简写形式
+{1 2; 3 4}.abs             // 矩阵元素绝对值
+
+eigenvalues({1 2; 3 4})    // 计算特征值
+
+solve(A, b)   // 解线性方程组 Ax = b
+reshape({1,2,3,4,5,6}, 3, 2)   // 将向量[1,2,3,4,5,6]重塑为3x2矩阵
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>max({1 2 3; 4 5 6})        // 矩阵最大值
+min({1 2 3; 4 5 6})        // 矩阵最小值
+sum({1 2 3; 4 5 6})        // 矩阵元素求和
+mean({1 2 3; 4 5 6})       // 矩阵元素均值
+sort({3 1 2; 6 4 5})       // 矩阵排序
+</code></pre></div>
+<h2 id="_11">矩阵运算示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="_12">矩阵乘法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>A = {1 2; 3 4}
+B = {5 6; 7 8}
+C = A @ B                  // 使用@运算符进行矩阵乘法
+</code></pre></div>
+<h3 id="_13">矩阵转置<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>A = {1 2 3; 4 5 6}
+B = transpose(A)            // 矩阵转置
+C = A.T                    // 矩阵转置的简写形式
+</code></pre></div>
+<h3 id="_14">矩阵求逆<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>A = {1 2; 3 4}
+B = inv(A)
+B = A.inv                  // 矩阵求逆
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">对于非正定的矩阵或者非方阵，返回的是广义逆</p>
+</div>
+<h3 id="_15">矩阵行列式<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>A = {1 2; 3 4}
+det = det(A)
+det = A.det                // 计算行列式
+</code></pre></div>
+<h3 id="_16">解线性方程组<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{align}
+1 \times x_{1} + 2 \times x_{2} = 5 \\
+3 \times x_{1} + 4 \times x_{2} = 6 
+\end{align}
+\]</div>
+<p>使用 <code>solve</code> 可以求解方程，对于上面的方程。</p>
+<div class="highlight"><pre><span></span><code>A = {1 2; 3 4}
+b = [5, 6]
+x = solve(A, b)            // 解方程 Ax = b
+</code></pre></div>
+<h3 id="_17">计算特征值和特征向量<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>A = {1 2; 3 4}
+values = eigenvalues(A)    // 特征值
+</code></pre></div>
+<h1 id="_18">矩阵函数详细表格<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h1>
+<p>以下是矩阵相关函数的详细表格，包括函数名称、语法、描述和示例：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>语法</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eye</code></td>
+<td><code>eye(n)</code></td>
+<td>创建n×n单位矩阵</td>
+<td><code>eye(3)</code> → 创建3×3单位矩阵</td>
+</tr>
+<tr>
+<td><code>zeros</code></td>
+<td><code>zeros(m, n)</code></td>
+<td>创建m×n全零矩阵</td>
+<td><code>zeros(2, 3)</code> → 创建2×3全零矩阵</td>
+</tr>
+<tr>
+<td><code>ones</code></td>
+<td><code>ones(m, n)</code></td>
+<td>创建m×n全一矩阵</td>
+<td><code>ones(2, 3)</code> → 创建2×3全一矩阵</td>
+</tr>
+<tr>
+<td><code>diag</code></td>
+<td><code>diag(v)</code></td>
+<td>用向量v创建对角矩阵</td>
+<td><code>diag([1, 2, 3])</code> → 创建对角元素为1,2,3的矩阵</td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td><code>range(start, end, [step])</code></td>
+<td>创建等差数列向量</td>
+<td><code>range(1, 10, 2)</code> → 创建向量[1,3,5,7,9]</td>
+</tr>
+<tr>
+<td><code>reshape</code></td>
+<td><code>reshape(A, m, n)</code></td>
+<td>将矩阵A重塑为m×n矩阵</td>
+<td><code>reshape({1,2,3,4}, 2, 2)</code> → 创建2×2矩阵</td>
+</tr>
+<tr>
+<td><code>repeat</code></td>
+<td><code>repeat(v, n)</code></td>
+<td>重复向量v，n次</td>
+<td><code>repeat([1,2], 3)</code> → 创建向量[1,2,1,2,1,2]</td>
+</tr>
+<tr>
+<td><code>solve</code></td>
+<td><code>solve(A, b)</code></td>
+<td>解线性方程组Ax=b</td>
+<td><code>solve({1,2;3,4}, [5,6])</code> → 求解方程组</td>
+</tr>
+<tr>
+<td><code>transpose</code></td>
+<td><code>A.transpose</code> 或 <code>A.T</code></td>
+<td>矩阵转置</td>
+<td><code>{1,2;3,4}.T</code> → 转置矩阵</td>
+</tr>
+<tr>
+<td><code>inv</code></td>
+<td><code>A.inv</code></td>
+<td>矩阵求逆，对于非正定的矩阵或者非方阵，返回的是广义逆</td>
+<td><code>{1,2;3,4}.inv</code> → 求逆矩阵</td>
+</tr>
+<tr>
+<td><code>det</code></td>
+<td><code>A.det</code></td>
+<td>计算矩阵行列式</td>
+<td><code>{1,2;3,4}.det</code> → 计算行列式</td>
+</tr>
+<tr>
+<td><code>eigenvalues</code></td>
+<td><code>eigenvalues(A)</code></td>
+<td>计算矩阵特征值</td>
+<td><code>eigenvalues({1,2;3,4})</code> → 计算特征值</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td><code>max(A)</code></td>
+<td>求矩阵最大元素</td>
+<td><code>max({1,2;3,4})</code> → 返回4</td>
+</tr>
+<tr>
+<td><code>min</code></td>
+<td><code>min(A)</code></td>
+<td>求矩阵最小元素</td>
+<td><code>min({1,2;3,4})</code> → 返回1</td>
+</tr>
+<tr>
+<td><code>sum</code></td>
+<td><code>sum(A)</code></td>
+<td>求矩阵所有元素之和</td>
+<td><code>sum({1,2;3,4})</code> → 返回10</td>
+</tr>
+<tr>
+<td><code>mean</code></td>
+<td><code>mean(A)</code></td>
+<td>求矩阵所有元素的平均值</td>
+<td><code>mean({1,2;3,4})</code> → 返回2.5</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td><code>sort(A)</code></td>
+<td>对矩阵元素排序</td>
+<td><code>sort({3,1;4,2})</code> → 排序后的矩阵</td>
+</tr>
+<tr>
+<td><code>abs</code></td>
+<td><code>A.abs</code></td>
+<td>矩阵元素取绝对值</td>
+<td><code>{-1,2;-3,4}.abs</code> → 所有元素取绝对值</td>
+</tr>
+<tr>
+<td><code>sin</code></td>
+<td><code>sin(A)</code></td>
+<td>矩阵元素做sin</td>
+<td><code>sin([1,2,3])</code> → <code>[sin(1), sin(2), sin(3)]</code></td>
+</tr>
+<tr>
+<td><code>ln</code></td>
+<td><code>ln(A)</code></td>
+<td></td>
+<td><code>ln([1,2,3])</code> → <code>[ln(1), ln(2), ln(3)]</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">事实上，几乎所有的函数和运算符都支持矩阵和向量操作</p>
+<p>函数： <code>f([a,b,c, ...]) --&gt; [f(a), f(b), f(c), ...])</code><br />
+操作符： <code>1 / [a,b,c,...] --&gt; [1/a, 1/b, 1/c, ...]</code></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.top", "navigation.tabs"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
